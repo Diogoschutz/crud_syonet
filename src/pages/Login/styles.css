@@ -3,8 +3,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   background-color: white;
   border: 1px solid black;
   padding: 20px;
@@ -20,4 +20,8 @@
 
  label.senha {
   float: 1cm;
+ }
+
+ body {
+  background-color: rgb(88, 88, 90);
  }

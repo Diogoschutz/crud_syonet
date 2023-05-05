@@ -1,0 +1,7 @@
+div {
+  border: 1px solid black;
+}
+
+div#root {
+  background-color: white;
+}

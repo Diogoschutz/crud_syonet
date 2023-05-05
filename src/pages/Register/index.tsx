@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import api from '../../services/api'
+import './styles.css'
 
 export default function RegisterScreen() {
   const [email, setEmail] = useState("")
@@ -54,8 +55,11 @@ export default function RegisterScreen() {
     <div className='container'>
       <h1>Cadastro de usuário</h1>
       <form onSubmit={handleSubmit}>
+      <label htmlFor="email">Email:</label>
         <input type="email" id="email" value={email} onChange={e =>   setEmail(e.target.value)} />
+        <label htmlFor="password">Senha:</label>
         <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <label htmlFor="confirmPassword">Repita a senha:</label>
         <input type="confirmPassword" id="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
         <p>{errorMessage}</p>
         <input type='submit' value="Cadastrar"/>

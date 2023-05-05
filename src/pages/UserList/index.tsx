@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../../services/api';
+import "./styles.css"
 
 type User = {
   id: number;
@@ -24,13 +25,13 @@ export default function UserListScreen() {
 
   return (
     <>
-      <h1>Lista de usuários</h1>
-      {users.map(user => (
-        <div key={user.id.toString()}>
-            <p>ID: {user.id}</p>
-            <p>{user.email}</p>
-        </div>
-      ))}
+    <h1>Lista de usuários</h1>
+          {users.map(user => (
+            <div key={user.id.toString()}>
+                <p>ID: {user.id}</p>
+                <p>{user.email}</p>
+            </div>
+          ))}
     </>
   )
 }

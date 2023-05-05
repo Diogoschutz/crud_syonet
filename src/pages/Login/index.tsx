@@ -39,7 +39,7 @@ export default function LoginScreen() {
         <label htmlFor="password" className='senha'>Senha:</label>
         <input type="password" id="password" value={password} onChange={e => setPassword(e.target.value)}/>
         <p>{errorMessage}</p>
-        <input type='submit' value="Login"/>
+        <input type='submit' value="Login" className='login'/>
       </form>
       <Link to="/cadastro">Criar Conta</Link>
     </div>
