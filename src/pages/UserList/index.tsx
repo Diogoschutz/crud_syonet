@@ -1,33 +1,36 @@
 import { useEffect, useState } from 'react'
-import { UserTitle } from '../../components/UserTitle';
-import Card from 'react-bootstrap/Card';
+import api from '../../services/api';
+
+type User = {
+  id: number;
+  email: string;
+}
 
 export default function UserListScreen() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
+
+  async function fetchUsers() {
+    try {
+      const response = await api.get('/users');
+      setUsers(response.data)
+    }catch (error) {
+      console.log(error)
+    }
+  };
 
   useEffect(() => {
-      const fetchUser = async () => {
-      const response = await fetch('url');
-      const data = await response.json();
-      setUsers(data);
-    };
-
-    fetchUser();
+    fetchUsers();
   }, []);
 
   return (
-    <UserTitle>
+    <>
       <h1>Lista de usuários</h1>
       {users.map(user => (
-        <Card key={user.id}>
-          <Card.Body>
-            <Card.Title>{user.name}</Card.Title>
-            <Card.Text>ID: {user.id}</Card.Text>
-          </Card.Body>
-        </Card>
+        <div key={user.id.toString()}>
+            <p>ID: {user.id}</p>
+            <p>{user.email}</p>
+        </div>
       ))}
-    </UserTitle>
-
-
+    </>
   )
 }
